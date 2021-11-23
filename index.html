@@ -29,21 +29,51 @@
   <meta itemprop="image" content="https://juster.fi/img/juster.png">
   <link data-vmid="canonical" rel="canonical" href="https://juster.fi">
   <link rel=icon href=img/favicon.ico>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
   <style>
     html {
+      font-family: "Inter", sans-serif;
+      word-spacing: 1px;
+      text-rendering: optimizelegibility;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
       height: 100%;
+    }
+
+    * {
+      touch-action: pan-x pan-y;
+    }
+
+    *::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    *::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0);
+      border-radius: 50px;
+    }
+
+    body:hover *::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.3);
     }
 
     body {
       margin: 0;
-      padding: 0 2em;
       background: #1b1b1b;
       height: 100%;
-      color: rgba(255, 255, 255, 0.7);
-      font-family: 'Inter', sans-serif;
       font-size: 18x;
     }
 
@@ -56,10 +86,18 @@
     .container {
       display: flex;
       flex-direction: column;
-      max-width: 725px;
-      margin: auto;
+      max-width: 800px;
+      padding: 10px;
       height: 100%;
+      margin: auto;
     }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
 
     .image {
       width: 100%;
@@ -69,63 +107,99 @@
     }
 
     h1 {
-      font-weight: bold;
-      font-size: 3em;
-      background-image: linear-gradient(to right, #333, #e5e5e5, #333);
-      background-size: 100%;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -moz-text-fill-color: transparent;
+      font-size: 48px;
+      line-height: 1.4;
+      font-weight: 600;
+      text-align: center;
+      font-family: "Sora", sans-serif;
+      max-width: 800px;
+      margin-bottom: 16px;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     p {
-      font-size: 1.2em;
-      line-height: 1.7em;
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.4);
+      text-align: center;
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 40px;
     }
 
-    .ml-2 {
-      margin-left: 0.2em;
-    }
-
-    .ml-10 {
-      margin-left: 1em;
-    }
-
-    .links {
+    .buttons {
       display: flex;
-      margin-top: 1em;
+      justify-content: center;
+      gap: 16px;
+    } 
+
+    .promo {
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+
+    .promo_video {
+      position: relative;
+      padding-bottom: 56.25%;
+      background: #1b1b1b;
+      height: 0;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      border: none;
+      outline: none;
+      border-radius: 7px;
+
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+
+      transition: all 0.2s ease;
+
+      height: 36px;
+      padding: 0 12px;
+      font-size: 14px;
     }
 
     a {
       text-decoration: none;
-      color: #457EE8;
     }
 
-    a>svg {
-      fill: #457EE8;
-      vertical-align: -0.1em;
+    .button-primary {
+      background: #276EF2;
+      fill: rgba(255, 255, 255, 0.9);
     }
 
-    a:hover {
-      text-shadow: 0 0 10px rgb(69 126 232 / 75%);
+    .button-primary:hover {
+      background: #3e7ef5;
     }
 
-    .delimiter {
-      color: #457EE860
+    .button-secondary {
+      background: #252628;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      fill: rgba(255, 255, 255, 0.4)
     }
 
-    .logo {
-      flex: 0 0 auto;
-      height: 30%;
-      display: flex;
-      justify-items: center;
-      justify-content: center;
+    .button-secondary:hover {
+      background: #2d2f31;
     }
 
-    .content {
-      flex: 1 0 auto;
+    .button-icon {
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .button-icon:hover {
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .footer {
@@ -140,41 +214,53 @@
 </head>
 </body>
 <div class="container">
-  <div class="logo">
-    <img src="img/logo.png" class="image" />
-  </div>
   <div class="content">
     <h1>Decentralized Betting Protocol</h1>
     <p>
-      Juster is an on-chain smart contract platform allowing users to take part in an
+      <span style="color: rgba(255, 255, 255, 0.7);">Juster</span> is an on-chain smart contract platform allowing users to take part in an
       automated betting market by creating events, providing liquidity to them, and
       making bets.
-      <br />
-      <br />
-      Beta launch on Tezos blockhain this summer, stay tuned.
     </p>
-    <div class="links">
-      <a href="docs/whitepaper.pdf" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-          focusable="false" width="1em" height="1em"
-          style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-          preserveAspectRatio="xMidYMid meet" viewBox="0 0 14 24">
-          <path
-            d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12z" />
-        </svg>
-        <span class="ml-2">Read the whitepaper</span></a>
-      <span class="ml-10 delimiter">/</span>
-      <a href="https://twitter.com/TezosBakingBad" target="_blank" rel="noreferrer noopener" class="ml-10"><svg
-          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-          focusable="false" width="1em" height="1em"
-          style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-          preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-          <path
-            d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23z" />
-        </svg><span class="ml-2">Follow us</span></a>
+    <div class="buttons">
+      <a href="https://app.juster.fi">
+        <button class="button button-primary">
+          <svg viewBox="0 0 24 24" width="16" height="16" role="img" style="min-width: 16px; min-height: 16px;"><path d="M6 2.3999C6.31826 2.3999 6.62349 2.52633 6.84853 2.75137C7.07357 2.97642 7.2 3.28164 7.2 3.5999V4.7999H8.4C8.71826 4.7999 9.02349 4.92633 9.24853 5.15137C9.47357 5.37642 9.6 5.68164 9.6 5.9999C9.6 6.31816 9.47357 6.62339 9.24853 6.84843C9.02349 7.07347 8.71826 7.1999 8.4 7.1999H7.2V8.3999C7.2 8.71816 7.07357 9.02339 6.84853 9.24843C6.62349 9.47347 6.31826 9.5999 6 9.5999C5.68174 9.5999 5.37652 9.47347 5.15147 9.24843C4.92643 9.02339 4.8 8.71816 4.8 8.3999V7.1999H3.6C3.28174 7.1999 2.97652 7.07347 2.75147 6.84843C2.52643 6.62339 2.4 6.31816 2.4 5.9999C2.4 5.68164 2.52643 5.37642 2.75147 5.15137C2.97652 4.92633 3.28174 4.7999 3.6 4.7999H4.8V3.5999C4.8 3.28164 4.92643 2.97642 5.15147 2.75137C5.37652 2.52633 5.68174 2.3999 6 2.3999ZM6 14.3999C6.31826 14.3999 6.62349 14.5263 6.84853 14.7514C7.07357 14.9764 7.2 15.2816 7.2 15.5999V16.7999H8.4C8.71826 16.7999 9.02349 16.9263 9.24853 17.1514C9.47357 17.3764 9.6 17.6816 9.6 17.9999C9.6 18.3182 9.47357 18.6234 9.24853 18.8484C9.02349 19.0735 8.71826 19.1999 8.4 19.1999H7.2V20.3999C7.2 20.7182 7.07357 21.0234 6.84853 21.2484C6.62349 21.4735 6.31826 21.5999 6 21.5999C5.68174 21.5999 5.37652 21.4735 5.15147 21.2484C4.92643 21.0234 4.8 20.7182 4.8 20.3999V19.1999H3.6C3.28174 19.1999 2.97652 19.0735 2.75147 18.8484C2.52643 18.6234 2.4 18.3182 2.4 17.9999C2.4 17.6816 2.52643 17.3764 2.75147 17.1514C2.97652 16.9263 3.28174 16.7999 3.6 16.7999H4.8V15.5999C4.8 15.2816 4.92643 14.9764 5.15147 14.7514C5.37652 14.5263 5.68174 14.3999 6 14.3999ZM14.4 2.3999C14.6648 2.39982 14.9222 2.48734 15.1321 2.64883C15.342 2.81032 15.4926 3.0367 15.5604 3.2927L16.9752 8.6399L21 10.9607C21.1824 11.066 21.3339 11.2175 21.4392 11.3999C21.5445 11.5823 21.5999 11.7893 21.5999 11.9999C21.5999 12.2105 21.5445 12.4175 21.4392 12.5999C21.3339 12.7823 21.1824 12.9338 21 13.0391L16.9752 15.3611L15.5592 20.7071C15.4913 20.9629 15.3407 21.189 15.131 21.3503C14.9212 21.5116 14.664 21.5991 14.3994 21.5991C14.1348 21.5991 13.8776 21.5116 13.6678 21.3503C13.4581 21.189 13.3075 20.9629 13.2396 20.7071L11.8248 15.3599L7.8 13.0391C7.61759 12.9338 7.46612 12.7823 7.36081 12.5999C7.2555 12.4175 7.20005 12.2105 7.20005 11.9999C7.20005 11.7893 7.2555 11.5823 7.36081 11.3999C7.46612 11.2175 7.61759 11.066 7.8 10.9607L11.8248 8.6387L13.2408 3.2927C13.3085 3.0369 13.4589 2.81066 13.6686 2.64919C13.8782 2.48772 14.1354 2.40008 14.4 2.3999Z"></path></svg>
+          Launch Juster app
+        </button>
+      </a>
+      <a href="https://app.juster.fi/docs">
+        <button class="button button-secondary">
+          <svg viewBox="0 0 24 24" width="16" height="16" role="img" style="min-width: 16px; min-height: 16px;"><path d="M10.8 5.76486C9.49165 5.12785 8.05517 4.79787 6.59999 4.80006C5.09399 4.80006 3.66839 5.14806 2.39999 5.76486V17.7649C3.70835 17.1279 5.14482 16.7979 6.59999 16.8001C8.60279 16.8001 10.4616 17.4121 12 18.4621C13.5913 17.3763 15.4736 16.797 17.4 16.8001C18.906 16.8001 20.3316 17.1481 21.6 17.7649V5.76486C20.2916 5.12785 18.8552 4.79787 17.4 4.80006C15.894 4.80006 14.4684 5.14806 13.2 5.76486V14.4001C13.2 14.7183 13.0736 15.0235 12.8485 15.2486C12.6235 15.4736 12.3183 15.6001 12 15.6001C11.6817 15.6001 11.3765 15.4736 11.1515 15.2486C10.9264 15.0235 10.8 14.7183 10.8 14.4001V5.76486Z"></path></svg>
+          Read the docs
+        </button>
+      </a>
     </div>
+    <div class="promo">
+      <div class="promo_video">
+          <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/4gZvUXsEIik?controls=0&modestbranding=1&rel=0"
+              title="Juster promo"
+              frameborder="0"
+              allow=""
+              allowfullscreen
+          ></iframe>
+      </div>
+  </div>
   </div>
   <div class="footer">
+    <div class="buttons">
+    <a class="button-icon" href="https://discord.gg/FeGDCkHhnB" target="_blank" rel="nofolow noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M22 24l-5.25-5l.63 2H4.5A2.5 2.5 0 0 1 2 18.5v-15A2.5 2.5 0 0 1 4.5 1h15A2.5 2.5 0 0 1 22 3.5V24M12 6.8c-2.68 0-4.56 1.15-4.56 1.15c1.03-.92 2.83-1.45 2.83-1.45l-.17-.17c-1.69.03-3.22 1.2-3.22 1.2c-1.72 3.59-1.61 6.69-1.61 6.69c1.4 1.81 3.48 1.68 3.48 1.68l.71-.9c-1.25-.27-2.04-1.38-2.04-1.38S9.3 14.9 12 14.9s4.58-1.28 4.58-1.28s-.79 1.11-2.04 1.38l.71.9s2.08.13 3.48-1.68c0 0 .11-3.1-1.61-6.69c0 0-1.53-1.17-3.22-1.2l-.17.17s1.8.53 2.83 1.45c0 0-1.88-1.15-4.56-1.15m-2.07 3.79c.65 0 1.18.57 1.17 1.27c0 .69-.52 1.27-1.17 1.27c-.64 0-1.16-.58-1.16-1.27c0-.7.51-1.27 1.16-1.27m4.17 0c.65 0 1.17.57 1.17 1.27c0 .69-.52 1.27-1.17 1.27c-.64 0-1.16-.58-1.16-1.27c0-.7.51-1.27 1.16-1.27z" fill="currentColor"/></svg>
+    </a>
+    <a class="button-icon" href="https://github.com/juster-finance" target="_blank" rel="nofolow noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" fill="currentColor"/></g></svg>
+    </a>
+    <a class="button-icon" href="https://twitter.com/TezosBakingBad" target="_blank" rel="nofolow noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733a4.67 4.67 0 0 0 2.048-2.578a9.3 9.3 0 0 1-2.958 1.13a4.66 4.66 0 0 0-7.938 4.25a13.229 13.229 0 0 1-9.602-4.868c-.4.69-.63 1.49-.63 2.342A4.66 4.66 0 0 0 3.96 9.824a4.647 4.647 0 0 1-2.11-.583v.06a4.66 4.66 0 0 0 3.737 4.568a4.692 4.692 0 0 1-2.104.08a4.661 4.661 0 0 0 4.352 3.234a9.348 9.348 0 0 1-5.786 1.995a9.5 9.5 0 0 1-1.112-.065a13.175 13.175 0 0 0 7.14 2.093c8.57 0 13.255-7.098 13.255-13.254c0-.2-.005-.402-.014-.602a9.47 9.47 0 0 0 2.323-2.41l.002-.003z" fill="currentColor"/></g></svg>
+    </a>
+  </div>
     <span>© 2021 Baking Bad</span>
   </div>
 </div>
